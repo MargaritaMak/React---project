@@ -13,6 +13,15 @@
   }
 }
 
+td {
+  padding: 50px;
+  border: solid black 2px;
+  background-color: rgb(246, 208, 240);
+}
+
+
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
