@@ -41,24 +41,22 @@ class App extends React.Component {
   onBoxClick = (id) => {
     const { data, data2 } = this.state;
     let item = data.find(item => {
-      return item.id == id
+      return item.id === id
     })
     if (item) {
-      const itemIndex = data.indexOf(item)
-      data.splice(itemIndex, 1)
-      data2.push(item)
+      this.setState({
+        data: data.filter(item => item.id !== id),
+        data2: [item, ...data2]
+      })
     } else {
       item = data2.find(item => {
-        return item.id == id
+        return item.id === id
       })
-      const itemIndex = data2.indexOf(item)
-      data2.splice(itemIndex, 1)
-      data.push(item)
+      this.setState({
+        data2: data2.filter(item => item.id !== id),
+        data: [item, ...data]
+      })
     }
-    this.setState({
-      data: data,
-      data2: data2
-    })
   }
 
 
